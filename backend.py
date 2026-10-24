@@ -2,11 +2,13 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
+from pathlib import Path
 from typing import Optional
 import math
 
 import swisseph as swe
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -38,6 +40,8 @@ LOCATIONS = {
     "london": (51.5074, -0.1278, "Europe/London"),
     "dubai": (25.2048, 55.2708, "Asia/Dubai"),
     "singapore": (1.3521, 103.8198, "Asia/Singapore"),
+    "ratnagiri": (16.9902, 73.3120, "Asia/Kolkata"),
+    "sindhudurg": (16.1217, 73.6855, "Asia/Kolkata"),
 }
 
 SIGNS = [
@@ -366,3 +370,18 @@ def calculate_chart(req: BirthRequest):
         "insights": build_insights(bodies, SIGNS[asc_si]),
         "disclaimer": "Planetary positions are astronomical calculations. The interpretive labels and traditional indicators are astrological conventions and should not be treated as scientific predictions.",
     }
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+@app.get("/")
+def get_index():
+    return FileResponse(BASE_DIR / "index.html")
+
+@app.get("/style.css")
+def get_css():
+    return FileResponse(BASE_DIR / "style.css")
+
+@app.get("/app.js")
+def get_js():
+    return FileResponse(BASE_DIR / "app.js")

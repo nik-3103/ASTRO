@@ -1,3 +1,8 @@
 @echo off
 cd /d %~dp0
-python -m uvicorn backend:app --reload --host 127.0.0.1 --port 8000
+if exist .venv\Scripts\python.exe (
+    .venv\Scripts\python.exe -m uvicorn backend:app --reload --host 127.0.0.1 --port 8000
+) else (
+    python -m uvicorn backend:app --reload --host 127.0.0.1 --port 8000
+)
+

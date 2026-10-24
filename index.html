@@ -6,22 +6,38 @@
   <title>AstroSight — AI Astrology</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Starfield & decorative planets (purely cosmetic) -->
+`
+  <!-- ── Deep Space Atmospheric Starfield ─────────── -->
   <div class="stars"></div>
-  <div class="deco-planet planet-tl"></div>
-  <div class="deco-planet planet-tr"></div>
-  <div class="deco-planet planet-bl"></div>
-  <div class="deco-planet planet-br"></div>
+
+  <!-- ── Movable Planetary Balls (Drag & Drop, positioned behind text) ── -->
+  <!-- 1. Giant Ringed Violet Planet -->
+  <div class="cosmic-ball planet-ringed-purple" id="ball-1" title="Cosmic Planet (Drag me)">
+    <div class="planet-ring"></div>
+  </div>
+
+  <!-- 2. Fiery Molten Crimson Moon -->
+  <div class="cosmic-ball planet-red-moon" id="ball-2" title="Crimson Moon (Drag me)"></div>
+
+  <!-- 3. Lunar Ice-Blue Orb -->
+  <div class="cosmic-ball planet-blue-moon" id="ball-3" title="Lunar Orb (Drag me)"></div>
+
+  <!-- 4. Emerald Textured Relic Sphere -->
+  <div class="cosmic-ball planet-emerald-orb" id="ball-4" title="Emerald Sphere (Drag me)"></div>
+
+  <!-- 5. Bronze-Amber Gas Giant -->
+  <div class="cosmic-ball planet-bronze-giant" id="ball-5" title="Gas Giant (Drag me)"></div>
 
   <!-- ── Navbar ─────────────────────────────────────── -->
   <nav class="navbar">
     <div class="brand">
-      <div class="brand-mark">✦</div>
+      <div class="brand-mark">
+        <div class="brand-mark-inner">✦</div>
+      </div>
       <div>
         <div class="brand-name">AstroSight</div>
         <div class="brand-tag">AI • VEDIC INSIGHTS</div>
@@ -37,71 +53,152 @@
   </nav>
 
   <main>
-
-    <!-- ── Hero ──────────────────────────────────────── -->
-    <section id="home" class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow">✦ AI-ASSISTED VEDIC ASTROLOGY</div>
-        <h1>Discover the story<br><span>written in the stars.</span></h1>
-        <p>
+    <!-- ── Hero Section (Original Text + Cosmic Occult Visuals) ── -->
+    <section id="home" class="hero-cult">
+      <div class="hero-cult-header">
+        <div class="hero-eyebrow">✦ AI-ASSISTED VEDIC ASTROLOGY</div>
+        <h1 class="hero-cult-title">Discover the story<br><span>written in the stars.</span></h1>
+        <p class="hero-cult-subtitle">
           AstroSight combines astronomical calculations, classical Vedic astrology
           knowledge and AI-assisted interpretation in one simple experience.
         </p>
-        <div class="hero-actions">
+      </div>
+
+      <!-- Hero Trinity: Left Action + Center Arcane Mandala + Right Action -->
+      <div class="hero-trinity">
+        <!-- Left Action Column -->
+        <div class="trinity-col left">
+          <h3>Vedic Natal<br>Astrology</h3>
+          <p>
+            Deterministic sidereal calculations driven by Swiss Ephemeris. Computes Lahiri Ayanamsa,
+            Whole Sign house cusps, and exact planetary longitudes.
+          </p>
           <button class="primary-btn" onclick="scrollToSection('birth-chart')">Create My Birth Chart <span>→</span></button>
-          <button class="secondary-btn" onclick="scrollToSection('palm-reading')">Explore Palm Reading</button>
         </div>
-        <div class="trust-row">
-          <div><b>✦</b> Vedic Astrology</div>
-          <div><b>◉</b> AI Assisted</div>
-          <div><b>⌁</b> Source-based Insights</div>
+
+        <!-- Center Column: Arcane Celestial Astrolabe Mandala -->
+        <div class="mandala-portal" id="mandalaPortal">
+          <svg class="mandala-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <linearGradient id="violet-magenta" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f472b6" />
+                <stop offset="50%" stop-color="#c084fc" />
+                <stop offset="100%" stop-color="#818cf8" />
+              </linearGradient>
+            </defs>
+
+            <!-- Outer Orbit Circle -->
+            <circle cx="250" cy="250" r="235" stroke="rgba(192, 132, 252, 0.25)" stroke-width="1.5" />
+            <circle cx="250" cy="250" r="220" stroke="rgba(216, 180, 254, 0.45)" stroke-width="1.5" stroke-dasharray="4 6" />
+
+            <!-- 12 Astrological House Station Nodes -->
+            <g class="mandala-orbit-nodes">
+              <circle cx="250" cy="30" r="5" />
+              <circle cx="360" cy="60" r="4" />
+              <circle cx="440" cy="140" r="4.5" />
+              <circle cx="470" cy="250" r="5.5" />
+              <circle cx="440" cy="360" r="4" />
+              <circle cx="360" cy="440" r="5" />
+              <circle cx="250" cy="470" r="6" />
+              <circle cx="140" cy="440" r="4" />
+              <circle cx="60" cy="360" r="4.5" />
+              <circle cx="30" cy="250" r="5" />
+              <circle cx="60" cy="140" r="4" />
+              <circle cx="140" cy="60" r="4.5" />
+            </g>
+
+            <!-- Middle Concentric Astrological Rings -->
+            <circle cx="250" cy="250" r="185" stroke="url(#violet-magenta)" stroke-width="2" />
+            <circle cx="250" cy="250" r="172" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1" />
+
+            <!-- The Arcane Astrological Star Geometry -->
+            <polygon points="250,75 298,205 435,210 327,295 365,425 250,345 135,425 173,295 65,210 202,205"
+                     stroke="url(#violet-magenta)" stroke-width="3" fill="rgba(88, 28, 135, 0.15)" filter="url(#glow-purple)" />
+            <polygon points="250,375 220,290 135,285 200,230 178,150 250,200 322,150 300,230 365,285 280,290"
+                     stroke="rgba(244, 114, 182, 0.6)" stroke-width="1.8" fill="rgba(168, 85, 247, 0.08)" />
+
+            <!-- Curvilinear Solar Arcs -->
+            <path d="M 250 170 C 220 200, 200 220, 190 250 C 180 280, 200 310, 230 320 C 260 330, 290 310, 295 280 C 300 250, 280 230, 260 215"
+                  stroke="rgba(216, 180, 254, 0.7)" stroke-width="2" stroke-linecap="round" fill="none" />
+            <path d="M 250 170 C 280 200, 300 220, 310 250 C 320 280, 300 310, 270 320 C 240 330, 210 310, 205 280 C 200 250, 220 230, 240 215"
+                  stroke="rgba(244, 114, 182, 0.7)" stroke-width="2" stroke-linecap="round" fill="none" />
+
+            <!-- Center Sun Symbol & Core -->
+            <circle cx="250" cy="250" r="42" fill="url(#violet-magenta)" filter="url(#glow-purple)" />
+            <circle cx="250" cy="250" r="28" fill="#150836" stroke="#ffffff" stroke-width="1.5" />
+            <text x="250" y="258" font-family="'Cinzel', serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">☉</text>
+
+            <!-- Crosshairs -->
+            <line x1="250" y1="50" x2="250" y2="450" stroke="rgba(216, 180, 254, 0.15)" stroke-width="1" />
+            <line x1="50" y1="250" x2="450" y2="250" stroke="rgba(216, 180, 254, 0.15)" stroke-width="1" />
+          </svg>
+        </div>
+
+        <!-- Right Action Column -->
+        <div class="trinity-col right">
+          <h3>Computer Vision<br>Palm Reading</h3>
+          <p>
+            Upload a palm image for the future computer-vision module that identifies palm features,
+            mounts, and major lines with AI-assisted interpretation.
+          </p>
+          <button class="secondary-btn" onclick="scrollToSection('palm-reading')">Explore Palm Reading <span>→</span></button>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-        <div class="zodiac-card">
-          <div class="zodiac-top">YOUR COSMIC MAP</div>
-          <div class="sun-symbol">☉</div>
-          <div class="zodiac-center">ASTROSIGHT</div>
-          <div class="zodiac-bottom">CALCULATE • RETRIEVE • INTERPRET</div>
-        </div>
+      <!-- Trust Row from Original Code -->
+      <div class="trust-row-cult">
+        <div><b>✦</b> Vedic Astrology</div>
+        <div><b>◉</b> AI Assisted</div>
+        <div><b>⌁</b> Source-based Insights</div>
       </div>
     </section>
 
-    <!-- ── Features ──────────────────────────────────── -->
+    <!-- ── Features Section (Original 3 Features in Relic Cards) ── -->
     <section class="features">
       <div class="section-heading">
         <div class="eyebrow">ONE PLATFORM</div>
         <h2>Explore your cosmic profile</h2>
         <p>Two AI-assisted experiences designed for the AstroSight project.</p>
       </div>
-      <div class="section-divider"></div>
-      <div class="feature-grid">
-        <div class="feature-card" onclick="scrollToSection('birth-chart')">
-          <div class="icon">☉</div>
-          <h3>AI Birth Chart</h3>
-          <p>Enter your birth details and generate a Vedic astrology profile with planetary and house insights.</p>
-          <span>Explore Birth Chart →</span>
+
+      <div class="relics-strip">
+        <div class="relic-item" onclick="scrollToSection('birth-chart')">
+          <div class="relic-medallion green">
+            <span class="relic-glyph">☉</span>
+          </div>
+          <div class="relic-title">AI Birth Chart</div>
+          <div class="relic-desc">Enter your birth details and generate a Vedic astrology profile with planetary and house insights.</div>
+          <span class="relic-link">Explore Birth Chart →</span>
         </div>
-        <div class="feature-card" onclick="scrollToSection('palm-reading')">
-          <div class="icon">☽</div>
-          <h3>AI Palm Reading</h3>
-          <p>Upload a palm image for the future computer-vision module that identifies palm features and lines.</p>
-          <span>Try Palm Reading →</span>
+
+        <div class="relic-item" onclick="scrollToSection('palm-reading')">
+          <div class="relic-medallion sigil">
+            <span class="relic-glyph">☽</span>
+          </div>
+          <div class="relic-title">AI Palm Reading</div>
+          <div class="relic-desc">Upload a palm image for the future computer-vision module that identifies palm features and lines.</div>
+          <span class="relic-link">Try Palm Reading →</span>
         </div>
-        <div class="feature-card">
-          <div class="icon">✧</div>
-          <h3>Source-Based RAG</h3>
-          <p>Astrological knowledge can be retrieved from the project's curated BPHS knowledge base before AI interpretation.</p>
-          <span>Knowledge Base →</span>
+
+        <div class="relic-item" onclick="scrollToSection('about')">
+          <div class="relic-medallion fire">
+            <span class="relic-glyph">✧</span>
+          </div>
+          <div class="relic-title">Source-Based RAG</div>
+          <div class="relic-desc">Astrological knowledge can be retrieved from the project's curated BPHS knowledge base before AI interpretation.</div>
+          <span class="relic-link">Knowledge Base →</span>
         </div>
       </div>
     </section>
 
-    <!-- ── Birth Chart ────────────────────────────────── -->
+    <!-- ── Birth Chart Workspace (Original Text & Complete Form) ── -->
     <section id="birth-chart" class="workspace">
       <div class="workspace-header">
         <div>
@@ -177,7 +274,7 @@
       </div>
     </section>
 
-    <!-- ── Chart Results ──────────────────────────────── -->
+    <!-- ── Calculated Chart Results (Original Text) ──────── -->
     <section id="chart-results" class="results-section hidden">
       <div class="workspace-header">
         <div>
@@ -206,7 +303,7 @@
       </div>
     </section>
 
-    <!-- ── Palm Reading ───────────────────────────────── -->
+    <!-- ── Palm Reading (Original Text) ─────────────────── -->
     <section id="palm-reading" class="workspace palm-section">
       <div class="workspace-header">
         <div>
@@ -227,7 +324,7 @@
       </div>
     </section>
 
-    <!-- ── About ──────────────────────────────────────── -->
+    <!-- ── About (Original Text & Pipeline) ─────────────── -->
     <section id="about" class="about">
       <div class="about-card">
         <div class="eyebrow">ABOUT ASTROSIGHT</div>
@@ -242,15 +339,74 @@
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer>
-    <div><strong>AstroSight</strong> • Final Year Project</div>
-    <div>AI-assisted computational Vedic astrology</div>
-  </footer>
-
   <div id="toast" class="toast"></div>
+
+  <!-- App logic (completely untouched) -->
   <script src="app.js"></script>
+
+  <!-- ── Draggable Cosmic Balls Script (Pure UI) ────────── -->
+  <script>
+  (function () {
+    const balls = document.querySelectorAll('.cosmic-ball');
+
+    balls.forEach(ball => {
+      let isDragging = false;
+      let startX, startY;
+      let initialLeft, initialTop;
+
+      ball.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        isDragging = true;
+        ball.classList.add('is-dragging');
+        ball.setPointerCapture(e.pointerId);
+
+        const rect = ball.getBoundingClientRect();
+        startX = e.clientX;
+        startY = e.clientY;
+        initialLeft = rect.left;
+        initialTop = rect.top;
+
+        ball.style.left = `${initialLeft}px`;
+        ball.style.top = `${initialTop}px`;
+        ball.style.right = 'auto';
+        ball.style.bottom = 'auto';
+      });
+
+      ball.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+
+        let newLeft = initialLeft + deltaX;
+        let newTop = initialTop + deltaY;
+
+        const maxLeft = window.innerWidth - ball.offsetWidth;
+        const maxTop = window.innerHeight - ball.offsetHeight;
+
+        newLeft = Math.max(10, Math.min(newLeft, maxLeft - 10));
+        newTop = Math.max(10, Math.min(newTop, maxTop - 10));
+
+        ball.style.left = `${newLeft}px`;
+        ball.style.top = `${newTop}px`;
+      });
+
+      const stopDrag = (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        ball.classList.remove('is-dragging');
+        try {
+          ball.releasePointerCapture(e.pointerId);
+        } catch (err) {}
+      };
+
+      ball.addEventListener('pointerup', stopDrag);
+      ball.addEventListener('pointercancel', stopDrag);
+    });
+  })();
+  </script>
 </body>
 </html>

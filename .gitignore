@@ -16,6 +16,7 @@ wheels/
 *.pyc
 
 # Virtual environments
+.venv*/
 .venv/
 venv/
 ENV/
